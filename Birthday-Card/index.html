@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Card</title>
+  <!-- Google Font-->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <!-- Stylesheet -->
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-image: url('/temp/da.jpg');
+
+      /* Thay đổi 'duong-dan-cua-hinh-anh.jpg' bằng đường dẫn thực tế của hình ảnh */
+      /* Đảm bảo hình ảnh nền bao phủ toàn bộ khu vực */
+      background-repeat: no-repeat;
+      /* Ngăn hình ảnh lặp lại */
+      background-color: rgb(243, 237, 177);
+      /* Màu nền phụ trợ khi hình ảnh không hiển thị hoặc đang tải */
+      background-size: 30% auto;
+
+    }
+
+    #background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    #background-video::-webkit-media-controls {
+      display: none;
+    }
+
+    .card {
+      width: 547px;
+      height: 451px;
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      /* Bo tròn góc của card */
+      -webkit-perspective: 1200px;
+      perspective: 1200px;
+      transition: 1s;
+    }
+
+    .card:hover {
+      transform: rotate(-5deg);
+    }
+
+    .card:hover .outside {
+      transform: rotateY(-130deg);
+    }
+
+    .outside,
+    .inside {
+      height: 100%;
+      width: 50%;
+      position: absolute;
+      left: 50.1%;
+    }
+
+    .inside {
+      background: linear-gradient(to right, #e7e7e7, #ffffff 30%);
+      line-height: 3;
+      padding: 0 20px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: left;
+    }
+
+    .outside {
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      z-index: 1;
+      transform-origin: left;
+      transition: 2s;
+      cursor: pointer;
+    }
+
+    .front,
+    .back {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      transform: rotateX(0deg);
+    }
+
+    .front {
+      background-color: rgb(186, 224, 183);
+    }
+
+    .back {
+      transform: rotateY(180deg);
+      background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
+    }
+
+    .outside p {
+      font-size: 23px;
+      text-transform: uppercase;
+      margin-top: 30px;
+      text-align: center;
+      letter-spacing: 6px;
+      color: rgb(186, 224, 183);
+    }
+
+    .inside h1 {
+      font-size: 120px;
+      line-height: 120px;
+    }
+
+    .front img {
+      width: 274px;
+      /* Đặt kích thước rộng của hình ảnh */
+      height: auto;
+      /* Để tỷ lệ khung hình tự điều chỉnh */
+      margin-bottom: 20px;
+      /* Khoảng cách dưới hình ảnh */
+    }
+
+    h5 {
+      color: rgb(186, 224, 183);
+      /* Thay đổi màu chữ thành màu xanh */
+      font-size: 35px;
+      /* Thay đổi kích thước chữ thành 24px */
+      font-family: 'Pacifico', cursive;
+      /* Thay đổi kiểu chữ thành Arial hoặc các kiểu chữ sans-serif khác */
+      font-weight: bold;
+      /* Đặt độ đậm cho chữ */
+      text-align: center;
+      /* Căn giữa nội dung trong thẻ <p> */
+      margin-top: 20px;
+    }
+
+    #background-audio {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h5>My Gift <3 </h5>
+      <div class="card">
+        <div class="outside">
+          <div class="front">
+            <img src="/images/Ycard.png" alt="Birthday Image">
+          </div>
+          <div class="back"></div>
+        </div>
+        <div class="inside" style="font-size: 13px;">
+          <p>TP HCM, 29/08/2023<br>
+            Gửi Ý,<br> chúc bà sinh nhật vui vẻ, tuổi mới xinh lại thêm xinh, duyên lại càng thêm duyên và yêu đời
+            nhé!. Sau này có lên làm quản lí thì cho tui đi máy bay free nhá =))<br>
+            <br>
+            Người gửi,<br>
+            Duy
+          </p>
+        </div>
+      </div>
+      <audio id="background-audio" controls autoplay loop>
+        <source src="/audio/audio.3gp">
+        Trình duyệt không hỗ trợ phát âm thanh
+      </audio>
+      <footer style="color: black; text-align: center; position: absolute; bottom: 20px; width: 100%;font-size: 10px;">
+        @ Made by QDuy
+      </footer>
+</body>
+
+</html>
